@@ -1,0 +1,24 @@
+{
+  "name": "canigo",
+  "version": "0.0.1",
+  "description": "Chrome extension that allows users to track traffic conditions from an origin to a detination in an unobtrusive manner.",
+  "main": "\"\"",
+  "scripts": {
+    "build": "webpack -p",
+    "build:watch": "webpack --watch",
+    "dist": "npm run build && cp index.html dist && cp manifest.json dist && cp index.built.js dist && cp event-page.built.js dist && mkdir -p dist/assets/images && cp -r assets/images dist/assets",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Allen G",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "crypto-js": "^3.1.9-1"
+  }
+}

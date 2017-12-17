@@ -1,0 +1,91 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "index.html".
+ -->
+<html>
+  <head>
+    <title>Getting Started Extension's Popup</title>
+    <style type="text/css">
+      body {
+        margin: 10px;
+        white-space: nowrap;
+      }
+
+      h1 {
+        font-size: 15px;
+      }
+
+      #container {
+        align-items: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+    -->
+    <script src="index.built.js"></script>
+  </head>
+
+  <body>
+    <h2>Enter your origin and destination below</h2>
+    <h4>Note that nothing is ever saved outside of your browser, and sensitive information is encrypted!</h4>
+    <div id="container">
+      <div>Status: <span id="running-message"></span></div>
+      <div>Time in traffic: <span id="time-in-traffic-message"></span></div>
+      <div>Last checked: <span id="last-checked-message"></span></div>
+
+      <div id="pw-screen" class="screen">
+        <h5>Enter existing passphrase to track previous route (if you have closed Chrome since):</h5>
+        <form id="pw-form">
+          <label for="pw-input">Passphrase</label>
+          <input name="pw" id="pw-input" type="password" />
+          <br/><br/>
+          <input type="submit" value="OK" />
+          <input id="clear-all-data" type="reset" value="Clear All Data" />
+        </form>
+      </div>
+
+      <hr />
+
+      <div>
+        ----- OR -----
+      </div>
+
+      <div id="route-screen" class="screen">
+        <h5>Enter new route:</h5>
+        <form id="route-form">
+          <label for="origin-input">Origin</label>
+          <input name="origin" id="origin-input" type="text" placeholder="123 Street Rd..." />
+
+          <br />
+
+          <label for="dest-input">Destination</label>
+          <input name="destination" id="dest-input" type="text" placeholder="456 Alley Dr..." />
+
+          <br />
+
+          <label for="api-key-input">API Key</label>
+          <input name="api-key" id="api-key-input" type="password" />
+
+          <br />
+
+          <label for="new-pw">New Passphrase</label>
+          <input name="new-passphrase" id="new-pw" type="password" />
+
+          <br /><br />
+
+          <input type="submit" value="Track!" />
+          <button id="pause-btn">Pause</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

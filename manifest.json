@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Can I go?",
+  "description": "This extension allows the user to track destination times from an origin to a destination via the Google Maps Directions API.",
+  "version": "0.0.1",
+  "browser_action": {
+    "default_icon": "assets/images/car-gray.png",
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "alarms",
+    "storage",
+    "https://maps.googleapis.com/maps/api/directions/*"
+  ],
+  "background": {
+    "scripts": ["event-page.built.js"],
+    "persistent": false
+  }
+}
