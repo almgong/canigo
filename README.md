@@ -6,7 +6,7 @@ A Chrome extension that periodically checks the route between an origin and a de
 
 ## State of Project
 
-Currently this is unreleasable because of limitations of security provided by Chrome's storage API (it's nonexistence and the storage quota size). However, the structure is there in case there ever is an encrypted storage option AND/OR if I have the time to come up with a different solution.
+Currently, I believe that this project is unreleasable because of the limitations of security provided by Chrome's storage API (primarily the nonexistence of an encrypted store). However, the current solution is to implement a password/passphrase based encryption scheme using AES and bcrypt. The modules used are: [crypto-js](https://github.com/brix/crypto-js) and [bcryptjs](https://github.com/dcodeIO/bcrypt.js).
 
 ## Building
 
@@ -15,11 +15,15 @@ The usual:
 npm install
 ```
 
-A defined npm script exists to create a distribution directory of the extension (one that will need to be compiled to a .crx).
+There is a defined npm script to create a distribution directory of the extension (one that will need to be compiled to a .crx).
 
 ```
 npm run dist
 ```
+
+## Local development
+
+One can load the unpacked extension via the Chrome extensions console. See: https://developer.chrome.com/extensions/getstarted#unpacked.
 
 This project uses Webpack and Babel to transpile ES6 syntax and to resolve dependencies between files.
 
